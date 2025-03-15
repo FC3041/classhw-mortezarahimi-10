@@ -31,5 +31,10 @@ class Program
         Console.WriteLine("------------------");
         Console.WriteLine($"{s2.Equals(s1)}");
         Console.WriteLine($"{s2.Equals(std_list[0])}");
+
+        Console.WriteLine("------------------");
+        str = "rahimi,20,20,100,true";
+        Student s3 = Student.Parse(str);
+        Student.Save("students.csv", [s1, s3]);
     }
 }

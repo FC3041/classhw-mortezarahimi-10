@@ -61,4 +61,25 @@ public class Student
             std_list[i] = new Student(tokens[0], int.Parse(tokens[1]), int.Parse(tokens[2]), int.Parse(tokens[3]), bool.Parse(tokens[4]));
         }
     }
+
+    public void Save(string filename)
+    {
+        File.AppendAllLines(filename, new string[]{this.ToString()});
+    }
+
+    static public void Save(string filename, Student[] std_list)
+    {
+        foreach(Student std in std_list)
+        {
+            std.Save(filename);
+        }
+    }
+
+    static public void Save(string filename, string[] std_list)
+    {
+        foreach(string std in std_list)
+        {
+            Student.Parse(std).Save(filename);
+        }
+    }
 }
